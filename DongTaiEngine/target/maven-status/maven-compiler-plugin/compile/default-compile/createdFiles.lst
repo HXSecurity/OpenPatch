@@ -1,0 +1,7 @@
+io/dongtai/rasp/engine/plugin/log4j/Log4jAdviceAdapter.class
+io/dongtai/rasp/engine/DongTaiTransform.class
+io/dongtai/rasp/engine/verify/VerifyTransform.class
+io/dongtai/rasp/engine/plugin/log4j/Log4jAdapter.class
+io/dongtai/rasp/engine/Engine.class
+io/dongtai/rasp/engine/verify/LoggerConfigAdapter.class
+io/dongtai/rasp/engine/verify/LoggerConfigAdviceAdapter.class

@@ -1,0 +1,4 @@
+io/dongtai/rasp/AttachLauncher.class
+io/dongtai/rasp/classloader/AgentClassLoader.class
+io/dongtai/rasp/JavaVersionUtils.class
+io/dongtai/rasp/Main.class
