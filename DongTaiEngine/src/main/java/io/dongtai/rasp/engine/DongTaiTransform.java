@@ -44,7 +44,8 @@ public class DongTaiTransform implements ClassFileTransformer {
         for (final Class<?> waitingReTransformClass : waitingReTransformClasses) {
             if (inst.isModifiableClass(waitingReTransformClass) && waitingReTransformClass.getName()
                     .endsWith(JNDI_LOOKUP_CLASS.replace("/", "."))) {
-                System.out.println("[io.dongtai.rasp] found vul class for slf4j2");
+                System.out.println(
+                        "[io.dongtai.rasp] found vul class " + waitingReTransformClass.getName() + " for slf4j2");
                 inst.retransformClasses(waitingReTransformClass);
             }
         }
