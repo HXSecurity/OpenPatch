@@ -60,7 +60,12 @@ public class Main {
      * @param inst inst
      */
     public static void premain(String args, Instrumentation inst) {
-        start(inst, args);
+        //
+        if ("false".equals(System.getProperty("DongTai.RASP.Status", "false"))) {
+            start(inst, args);
+        } else {
+            System.setProperty("DongTai.RASP.Status", "true");
+        }
     }
 
     /**
@@ -70,7 +75,11 @@ public class Main {
      * @param inst inst
      */
     public static void agentmain(String args, Instrumentation inst) {
-        start(inst, args);
+        if ("false".equals(System.getProperty("DongTai.RASP.Status", "false"))) {
+            start(inst, args);
+        } else {
+            System.setProperty("DongTai.RASP.Status", "true");
+        }
     }
 
     private static void start(Instrumentation inst, String args) {

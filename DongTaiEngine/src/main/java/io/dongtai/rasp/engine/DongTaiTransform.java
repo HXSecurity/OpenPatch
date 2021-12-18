@@ -25,7 +25,7 @@ public class DongTaiTransform implements ClassFileTransformer {
     @Override
     public byte[] transform(ClassLoader classLoader, String internalClassName, Class<?> classBeingRedefined,
             ProtectionDomain protectionDomain, byte[] bytes) {
-        if (internalClassName != null && internalClassName.equals(JNDI_LOOKUP_CLASS)) {
+        if (internalClassName != null && internalClassName.endsWith(JNDI_LOOKUP_CLASS)) {
             System.out.println("[io.dongtai.rasp] Hit log4j2 JndiLookup class, try to fix.");
             final ClassReader cr = new ClassReader(bytes);
             final ClassWriter cw = new ClassWriter(cr, COMPUTE_FRAMES);
@@ -43,7 +43,7 @@ public class DongTaiTransform implements ClassFileTransformer {
 
         for (final Class<?> waitingReTransformClass : waitingReTransformClasses) {
             if (inst.isModifiableClass(waitingReTransformClass) && waitingReTransformClass.getName()
-                    .equals(JNDI_LOOKUP_CLASS.replace("/", "."))) {
+                    .endsWith(JNDI_LOOKUP_CLASS.replace("/", "."))) {
                 System.out.println("[io.dongtai.rasp] found vul class for slf4j2");
                 inst.retransformClasses(waitingReTransformClass);
             }
